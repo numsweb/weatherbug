@@ -4,3 +4,4 @@ log/*.log
 tmp/
 .sass-cache/
 config/initializers/api_key.rb
+doc/weatherbug_api.txt
