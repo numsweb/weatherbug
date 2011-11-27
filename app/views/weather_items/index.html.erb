@@ -1,0 +1,34 @@
+<h1>Weatherbug Query</h1>
+<div id = "weather_form">
+  <%= form_for "weather",  :url => weather_path, :method => :get do |f| %>
+    Enter Zip Code: <%= f.text_field "zip", :size => 16 %><br/><br/>
+    <span id="form_submit">
+      <%= f.submit "Check Weather"%>
+    </span>
+  <% end %>
+</div>
+
+
+<!-- <h1>Listing weather_items</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weather_items.each do |weather_item| %>
+  <tr>
+    <td><%= link_to 'Show', weather_item %></td>
+    <td><%= link_to 'Edit', edit_weather_item_path(weather_item) %></td>
+    <td><%= link_to 'Destroy', weather_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Weather item', new_weather_item_path %>
+
+-->

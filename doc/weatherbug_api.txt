@@ -1,0 +1,13 @@
+Your ACode is: A3436701355
+
+Dear John Kropka,
+
+Thanks for registering with WeatherBug API. Please make a note of your ACode (API license key) as it will be required in all of your API calls.
+
+Your ACode is: A3436701355.
+
+You will recieve an email with this ACode and helpful links to get started.
+
+NOTE: Your ACode will not be functional for 30 minutes after registration. You will see an "access denied" error message if you try to access your API before then.
+
+ http://A3436701355.api.wxbug.net/getStationsXML.aspx?ACode=A3436701355&zipCode=78748

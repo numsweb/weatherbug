@@ -1,0 +1,11 @@
+// Place all the styles related to the weather_items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container{width:1300px;}
+#lh{float:left;width:500px;}
+#rh{float:left;margin-left:30px;width:750px;}
+.blue_table{border-top:1px solid #749CD5;padding:10px;margin:0px;border-left:2px solid #749CD5;border-right:2px solid #749CD5;border-bottom:1px solid #749CD5;}
+#links{margin-left:30px;}
+#weather_form{margin-left:10px;padding:20px;padding-left:50px;border: 1px solid #749CD5;width:325px;}
+#form_submit{margin-left:135px;}
