@@ -24,7 +24,7 @@ class WeatherItem < ActiveRecord::Base
   
   def self.get_forecast(zip_code)
     #This returns RSS
-    url = "http://api.wxbug.net/getForecastRSS.aspx?ACode=A3436701355&zipCode=#{zip_code}&unittype=0"
+    url = "http://api.wxbug.net/getForecastRSS.aspx?ACode=#{API_KEY}&zipCode=#{zip_code}&unittype=0"
     @feed = Feedzirra::Feed.fetch_and_parse(url)
     return @feed
   end
