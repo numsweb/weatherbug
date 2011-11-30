@@ -11,17 +11,36 @@
           <h2>Current Conditions </h2>
         </td>
       </tr>
-        <%  @doc.find('//aws:weather/aws:stations/aws:station').each do |station| %>
-          <tr><td class="blue_table">
-          <b><%= station["name"] %>:</b>&nbsp;
+       <%  @doc.find('//aws:weather/aws:stations/aws:station').each do |station| %>
+        <tr><td class="blue_table">
+
+        <b><%= station["name"] %>:</b>&nbsp;
+
           <% live_weather = WeatherItem.get_live_weather(station["id"]) %>
-          <%= live_weather.title %><br/><br/>
-          <% live_weather.entries.each do |entry| %>
-            <%= sanitize(entry.summary) %>
-          <% end %>
-          <br/><br/>
-          </td></tr>
-        <% end %>
+          <table>
+            <% begin %>
+              <tr>
+                <td>Current Contitions: </td><td><%= live_weather.find('//aws:weather/aws:ob/aws:current-condition')[0].content%></td>
+              </tr>
+              <tr>
+                <td>Temperature:</td><td> <%= live_weather.find('//aws:weather/aws:ob/aws:temp')[0].content%></td>
+              </tr>
+              <tr>
+                <td>Feels Like:</td><td> <%= live_weather.find('//aws:weather/aws:ob/aws:feels-like')[0].content %></td>
+              </tr>
+              <tr>
+                <td>Low temperature today: </td><td><%= live_weather.find('//aws:weather/aws:ob/aws:temp-low')[0].content%></td>
+              </tr>
+              <tr>
+                <td>High temperature today: </td><td><%= live_weather.find('//aws:weather/aws:ob/aws:temp-high')[0].content%></td>
+              </tr>
+            <% rescue %>
+              <tr><td style="color:red;">No report for this station! </td></tr>
+            <% end %>
+          </table>
+        
+        </td></tr>
+      <% end %>
     </table>
   </div>
   <div id="rh">
@@ -31,15 +50,29 @@
           <h2>7-Day Forecast</h2>
         </td>
       </tr>
-      <% @forecast.entries.each do |entry| %>
-        <tr>
-          <td>
-            <%= entry.title %><br/>
-            <%= sanitize(entry.summary) %>
-            <br/><br/>
-          </td>
-        </tr>
-        <% end %>
+      <tr>
+        <td>
+          <% forecasts = @forecast.find('//aws:weather/aws:forecasts/aws:forecast')%>
+            <% i=0 %>
+            <% while i < 7 %>
+              <table>
+                <tr>
+                  <td  class="forecast_image">
+                    <img src= <%= forecasts[i].find('aws:image')[0].content %>></img>
+                  </td>
+                  <td class=forecast_text>
+                    <%= forecasts[i].find('aws:title')[0].content %><br/>
+                    <%= forecasts[i].find('aws:prediction')[0].content %><br/>
+                    High: <%= forecasts[i].find('aws:high')[0].content %><br/>
+                    Low: <%= forecasts[i].find('aws:low')[0].content %><br/>
+                  </td>
+                </tr>
+              </table>
+              <% i+=1 %>
+              <br/><br/>
+            <% end %>
+        </td>
+      </tr>
     </table>
   </div>
 </div>

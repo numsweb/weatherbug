@@ -5,8 +5,8 @@ class WeatherItemsController < ApplicationController
   
   def get_locations
     @page_title = "Conditions and Forecast"
-     @doc = WeatherItem.get_locations(params[:weather][:zip])
-     @forecast = WeatherItem.get_forecast(params[:weather][:zip])
+    @doc = WeatherItem.get_locations(params[:weather][:zip])
+    @forecast = WeatherItem.get_forecast(params[:weather][:zip])
   end
   
   def index
