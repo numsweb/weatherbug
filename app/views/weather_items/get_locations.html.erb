@@ -57,10 +57,8 @@
             <% while i < 7 %>
               <table>
                 <tr>
-                  <td  class="forecast_image">
+                  <td  class="forecast_text">
                     <img src= <%= forecasts[i].find('aws:image')[0].content %>></img>
-                  </td>
-                  <td class=forecast_text>
                     <%= forecasts[i].find('aws:title')[0].content %><br/>
                     <%= forecasts[i].find('aws:prediction')[0].content %><br/>
                     High: <%= forecasts[i].find('aws:high')[0].content %><br/>
