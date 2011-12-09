@@ -4,6 +4,7 @@ gem 'rails', '3.1.0'
 gem 'mysql'
 gem 'libxml-ruby'
 gem 'feedzirra'
+gem 'mongrel', "1.2.0.pre2" 
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
