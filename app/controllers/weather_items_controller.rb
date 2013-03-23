@@ -15,7 +15,7 @@ class WeatherItemsController < ApplicationController
     @weather_items = []
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @weather_items }
+      format.json { render :json => @weather_items }
     end
   end
 
@@ -26,7 +26,7 @@ class WeatherItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @weather_item }
+      format.json { render :json => @weather_item }
     end
   end
 
@@ -37,7 +37,7 @@ class WeatherItemsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @weather_item }
+      format.json { render :json => @weather_item }
     end
   end
 
@@ -53,11 +53,11 @@ class WeatherItemsController < ApplicationController
 
     respond_to do |format|
       if @weather_item.save
-        format.html { redirect_to @weather_item, notice: 'Weather item was successfully created.' }
-        format.json { render json: @weather_item, status: :created, location: @weather_item }
+        format.html { redirect_to @weather_item, :notice => 'Weather item was successfully created.' }
+        format.json { render :json => @weather_item, :status =>  :created, :location =>  @weather_item }
       else
-        format.html { render action: "new" }
-        format.json { render json: @weather_item.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @weather_item.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -69,11 +69,11 @@ class WeatherItemsController < ApplicationController
 
     respond_to do |format|
       if @weather_item.update_attributes(params[:weather_item])
-        format.html { redirect_to @weather_item, notice: 'Weather item was successfully updated.' }
+        format.html { redirect_to @weather_item, :notice => 'Weather item was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @weather_item.errors, status: :unprocessable_entity }
+        format.html { render :action =>  "edit" }
+        format.json { render :json => @weather_item.errors, :status => :unprocessable_entity }
       end
     end
   end
